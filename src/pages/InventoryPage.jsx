@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { vehicles } from "../data/vehicles";
+
 import VehicleCard from "../components/VehicleCard";
 import { PageHero } from "../components/UI";
 
-export default function InventoryPage({ navigate }) {
+export default function InventoryPage({ navigate, vehicles = [] }) {
   const [search, setSearch] = useState("");
   const [filterFuel, setFilterFuel] = useState("All");
   const [filterTrans, setFilterTrans] = useState("All");

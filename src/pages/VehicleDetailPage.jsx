@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { vehicles } from "../data/vehicles";
+
 import { GoldButton, OutlineButton, FormInput, FormTextarea, SectionLabel } from "../components/UI";
 import VehicleCard from "../components/VehicleCard";
 
@@ -12,7 +12,7 @@ const formatPrice = (price) =>
 
 const formatMileage = (m) => new Intl.NumberFormat("en-GB").format(m) + " miles";
 
-export default function VehicleDetailPage({ vehicleId, navigate }) {
+export default function VehicleDetailPage({ vehicleId, navigate, vehicles = [] }) {
   const vehicle = vehicles.find((v) => v.id === vehicleId);
   const related = vehicles.filter((v) => v.id !== vehicleId).slice(0, 3);
 

@@ -1,9 +1,10 @@
+import { testimonials } from "../data/vehicles";
 import { useState, useEffect } from "react";
-import { vehicles, testimonials } from "../data/vehicles";
+
 import VehicleCard from "../components/VehicleCard";
 import { GoldButton, OutlineButton, SectionLabel } from "../components/UI";
 
-export default function HomePage({ navigate }) {
+export default function HomePage({ navigate, vehicles = [] }) {
   const [heroLoaded, setHeroLoaded] = useState(false);
   const featured = vehicles.filter((v) => v.featured).slice(0, 3);
 
