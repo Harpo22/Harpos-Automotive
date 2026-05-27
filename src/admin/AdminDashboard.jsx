@@ -8,7 +8,7 @@ const formatPrice = (p) =>
 
 const formatMileage = (m) => new Intl.NumberFormat('en-GB').format(m) + ' mi'
 
-export default function AdminDashboard() {
+export default function AdminDashboard({ onLogout }) {
   const [vehicles, setVehicles] = useState([])
   const [loading, setLoading] = useState(true)
   const [view, setView] = useState('list') // 'list' | 'add' | 'edit'
@@ -31,9 +31,9 @@ export default function AdminDashboard() {
 
   useEffect(() => { load() }, [])
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    window.location.reload()
+  const handleLogout = () => {
+    // logged out
+    onLogout && onLogout()
   }
 
   const handleDelete = async (vehicle) => {
